@@ -1,0 +1,88 @@
+Create two IELTS Reading passages based on the following criteria:
+
+Level: (level)
+One of three levels: easy, medium, or hard.
+Adjust the complexity of the passages and questions to match the selected level.
+Structure:
+Generate exactly two unique passages, each with a different and distinctive theme or subject.
+Each passage must have exactly 13 questions.
+Ensure a balanced mix of question types (MULTIPLE_CHOICE and TEXT) for each passage:
+Passage 1: ~50% MULTIPLE_CHOICE, ~50% TEXT.
+Passage 2: ~70% MULTIPLE_CHOICE, ~30% TEXT.
+Skills:
+Each passage should assess a specific reading skill, such as:
+Skimming: Questions that focus on main ideas or primary purposes.
+Scanning: Questions that require finding specific information in the passage.
+Understanding Details: Questions about explicitly stated information.
+Inference: Questions requiring logical conclusions based on the passage.
+Include a skill field for each passage indicating the primary skill being tested.
+Scoring:
+Each question should have a score field specifying the points awarded for a correct answer.
+MULTIPLE_CHOICE questions should typically be worth 1-2 points.
+TEXT questions, which require more effort, should be worth 2-4 points depending on complexity.
+Timing:
+Each passage must be solvable within 20 minutes.
+Word Count for Passages:
+Each passage must contain between 500 and 800 words.
+Unique Themes:
+Each passage must have a completely unique theme or subject.
+Format:
+Each passage should include:
+A number field (1 or 3).
+A skill field (e.g., "Skimming" or "Inference").
+A title for the passage.
+The full passage text, with a word count between 500 and 800 words.
+Each question should include:
+A text field (the question text).
+A type field indicating the question type:
+TEXT (free-response).
+MULTIPLE_CHOICE (multiple-choice questions).
+A score field specifying the points for a correct answer.
+For MULTIPLE_CHOICE questions, provide answers with a text field for each option and an is_correct flag.
+Randomness and Balance:
+Randomize the order of questions within each passage while maintaining clarity.
+Question Clarity:
+Ensure all questions are clear, concise, and unambiguous.
+Examples:
+Skimming questions: “What is the primary purpose of the passage?”
+Detail-based questions: “Which year is mentioned as a turning point for the subject discussed?”
+Inference questions: “What can be inferred about the author’s perspective on the topic?”
+Response Format[...]
+Return the generated passages in the following JSON structure exactly 13 questions:
+
+json```
+[
+  {
+    "number": 1,
+    "skill": "Skimming",
+    "title": "The Benefits of Renewable Energy",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [
+      {
+        "text": "What is the main goal of renewable energy as mentioned in the passage?",
+        "type": "MULTIPLE_CHOICE",
+        "score": 2,
+        "answers": [
+          {"text": "To reduce greenhouse gas emissions", "is_correct": true},
+          {"text": "To eliminate fossil fuels entirely", "is_correct": false},
+          {"text": "To increase energy consumption", "is_correct": false}
+        ]
+      },
+      {
+        "text": "List two challenges faced by renewable energy developers.",
+        "type": "TEXT",
+        "score": 3,
+        "answers": []
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "skill": "Inference",
+    "title": "Breakthroughs in Genetic Engineering",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [...]
+  }
+]
+```
+IMPORTANT: You MUST generate exactly 13 questions for each passage. If you generate more or fewer, the test will be rejected.

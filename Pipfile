@@ -1,0 +1,36 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+aerich = "*"
+asyncpg = ">=0.29.0"
+httpx = "*"
+jwcrypto = "*"
+passlib = "*"
+pillow = "*"
+pyjwt = "*"
+pydantic = "*"
+python-decouple = "*"
+python-jose = "*"
+python-multipart = "*"
+redis = "*"
+requests = "*"
+tortoise-orm = "*"
+uvicorn = { extras = ["standard"], version = "*" }
+openai = "*"
+fastapi = "*"
+aiofiles = "*"
+matplotlib = "*"
+arq = "*"
+piccolo-admin = "*"
+fastadmin = {extras = ["tortoise-orm", "fastapi"], version = "*"}
+bcrypt = "*"
+
+[dev-packages]
+pytest-asyncio = "*"
+tomlkit = "*"
+
+[requires]
+python_version = "3.12"

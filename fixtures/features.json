@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "created_at": "2025-06-26 10:00:00.000000+00",
+        "updated_at": "2025-06-26 10:00:00.000000+00",
+        "name": "Listening",
+        "description": "Permission for Listening comprehension parts",
+        "name_ru": "Аудирование",
+        "description_en": "Permission for Listening comprehension parts",
+        "name_uz": "Eshitish",
+        "name_en": "Listening",
+        "description_uz": "Eshitish bo‘limiga ruxsat",
+        "description_ru": "Доступ к разделу Аудирование"
+    },
+    {
+        "id": 2,
+        "created_at": "2025-06-26 10:00:00.000000+00",
+        "updated_at": "2025-06-26 10:00:00.000000+00",
+        "name": "Reading",
+        "description": "Permission for Reading comprehension parts",
+        "name_ru": "Чтение",
+        "description_en": "Permission for Reading comprehension parts",
+        "name_uz": "O‘qish",
+        "name_en": "Reading",
+        "description_uz": "O‘qish bo‘limiga ruxsat",
+        "description_ru": "Доступ к разделу Чтение"
+    },
+    {
+        "id": 3,
+        "created_at": "2025-06-26 10:00:00.000000+00",
+        "updated_at": "2025-06-26 10:00:00.000000+00",
+        "name": "Writing",
+        "description": "Permission for Writing parts",
+        "name_ru": "Письмо",
+        "description_en": "Permission for Writing parts",
+        "name_uz": "Yozish",
+        "name_en": "Writing",
+        "description_uz": "Yozish bo‘limiga ruxsat",
+        "description_ru": "Доступ к разделу Письмо"
+    },
+    {
+        "id": 4,
+        "created_at": "2025-06-26 10:00:00.000000+00",
+        "updated_at": "2025-06-26 10:00:00.000000+00",
+        "name": "Grammar Practice",
+        "description": "Permission for Grammar exercises",
+        "name_ru": "Грамматика",
+        "description_en": "Permission for Grammar exercises",
+        "name_uz": "Grammatika mashqlari",
+        "name_en": "Grammar Practice",
+        "description_uz": "Grammatika mashqlariga ruxsat",
+        "description_ru": "Доступ к грамматическим упражнениям"
+    },
+    {
+        "id": 5,
+        "created_at": "2025-06-26 10:00:00.000000+00",
+        "updated_at": "2025-06-26 10:00:00.000000+00",
+        "name": "Vocabulary Builder",
+        "description": "Permission for Vocabulary expansion tasks",
+        "name_ru": "Словарный запас",
+        "description_en": "Permission for Vocabulary expansion tasks",
+        "name_uz": "Leksika",
+        "name_en": "Vocabulary Builder",
+        "description_uz": "Leksika kengaytirish mashqlariga ruxsat",
+        "description_ru": "Доступ к заданиям на расширение словарного запаса"
+    }
+]

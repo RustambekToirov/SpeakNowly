@@ -1,0 +1,105 @@
+Create a dynamic IELTS Reading test based on the following criteria:
+
+Level: (level)
+One of three levels: easy, medium, or hard.
+Adjust the complexity of the passages and questions to match the selected level.
+Structure:
+The test must consist of three unique passages, each representing a different and distinctive theme or subject.
+The total number of questions must be 40:
+Passage 1: 13 questions.
+Passage 2: 14 questions.
+Passage 3: 13 questions.
+Ensure a balanced mix of question types (MULTIPLE_CHOICE and TEXT) for each passage:
+Each passage should include 50-70% multiple-choice questions and 30-50% free-text questions.
+Skills:
+Each passage should assess a specific reading skill, such as:
+Skimming: Questions that focus on main ideas or primary purposes.
+Scanning: Questions that require finding specific information in the passage.
+Understanding Details: Questions about explicitly stated information.
+Inference: Questions requiring logical conclusions based on the passage.
+Include a skill field for each passage indicating the primary skill being tested.
+Scoring:
+Each question should have a score field specifying the points awarded for a correct answer.
+MULTIPLE_CHOICE questions should typically be worth 1-2 points.
+TEXT questions, which require more effort, should be worth 2-4 points depending on complexity.
+Timing:
+The entire test must be solvable within 60 minutes, with appropriately structured passages and questions.
+Word Count for Passages:
+Each passage must contain between 500 and 800 words.
+The word count and complexity of the passages should align with the level (easy, medium, or hard).
+Unique Themes:
+Each passage must have a completely unique theme or subject that has not been used in previous tests.
+Topics must reflect cultural diversity, current trends, or niche subjects while remaining suitable for IELTS Reading tests.
+Examples of themes:
+General: Topics such as "Eco-Tourism," "The Rise of Remote Work," or "Historical Landmarks."
+Academic: Topics such as "The Evolution of Renewable Energy," "The Psychology of Learning," or "Breakthroughs in Genetic Engineering."
+Format:
+Each passage should include:
+A number field (indicating the sequence, e.g., 1, 2, 3).
+A skill field (e.g., "Skimming" or "Understanding Details").
+A title for the passage.
+The full passage text, with a word count between 500 and 800 words.
+Each question should include:
+A text field (the question text).
+A type field indicating the question type:
+TEXT (free-response).
+MULTIPLE_CHOICE (multiple-choice questions).
+A score field specifying the points for a correct answer.
+For MULTIPLE_CHOICE questions, provide answers with a text field for each option and an is_correct flag.
+Randomness and Balance:
+Ensure a random mix of question types for each passage:
+Passage 1: ~50% MULTIPLE_CHOICE, ~50% TEXT.
+Passage 2: ~60% MULTIPLE_CHOICE, ~40% TEXT.
+Passage 3: ~70% MULTIPLE_CHOICE, ~30% TEXT.
+Randomize the order of questions within each passage while maintaining clarity.
+Question Clarity:
+Ensure all questions are clear, concise, and unambiguous.
+Examples:
+Skimming questions: “What is the primary purpose of the passage?”
+Detail-based questions: “Which year is mentioned as a turning point for the subject discussed?”
+Inference questions: “What can be inferred about the author’s perspective on the topic?”
+Response Format
+Return the generated test in the following JSON structure:
+
+json```
+[
+  {
+    "number": 1,
+    "skill": "Skimming",
+    "title": "The Benefits of Renewable Energy",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [
+      {
+        "text": "What is the main goal of renewable energy as mentioned in the passage?",
+        "type": "MULTIPLE_CHOICE",
+        "score": 2,
+        "answers": [
+          {"text": "To reduce greenhouse gas emissions", "is_correct": true},
+          {"text": "To eliminate fossil fuels entirely", "is_correct": false},
+          {"text": "To increase energy consumption", "is_correct": false}
+        ]
+      },
+      {
+        "text": "List two challenges faced by renewable energy developers.",
+        "type": "TEXT",
+        "score": 3,
+        "answers": []
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "skill": "Understanding Details",
+    "title": "The Psychology of Learning",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [...]
+  },
+  {
+    "number": 3,
+    "skill": "Inference",
+    "title": "Breakthroughs in Genetic Engineering",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [...]
+  }
+]
+```

@@ -1,0 +1,80 @@
+Create one IELTS Reading passage based on the following criteria:
+
+Level: (level)
+One of three levels: easy, medium, or hard.
+Adjust the complexity of the passage and questions to match the selected level.
+Structure:
+Generate exactly one unique passage with a distinctive theme or subject.
+This passage must have exactly 14 questions.
+Ensure a balanced mix of question types (MULTIPLE_CHOICE and TEXT):
+~60% MULTIPLE_CHOICE, ~40% TEXT.
+Skills:
+The passage should assess a specific reading skill, such as:
+Skimming: Questions that focus on main ideas or primary purposes.
+Scanning: Questions that require finding specific information in the passage.
+Understanding Details: Questions about explicitly stated information.
+Inference: Questions requiring logical conclusions based on the passage.
+Include a skill field for the passage indicating the primary skill being tested.
+Scoring:
+Each question should have a score field specifying the points awarded for a correct answer.
+MULTIPLE_CHOICE questions should typically be worth 1-2 points.
+TEXT questions, which require more effort, should be worth 2-4 points depending on complexity.
+Timing:
+The passage must be solvable within 20 minutes.
+Word Count for Passage:
+The passage must contain between 500 and 800 words.
+Unique Theme:
+The passage must have a completely unique theme or subject.
+Format:
+The passage should include:
+A number field ("number": 2).
+A skill field (e.g., "Understanding Details").
+A title for the passage.
+The full passage text, with a word count between 500 and 800 words.
+Each question should include:
+A text field (the question text).
+A type field indicating the question type:
+TEXT (free-response).
+MULTIPLE_CHOICE (multiple-choice questions).
+A score field specifying the points for a correct answer.
+For MULTIPLE_CHOICE questions, provide answers with a text field for each option and an is_correct flag.
+Randomness and Balance:
+Randomize the order of questions while maintaining clarity.
+Question Clarity:
+Ensure all questions are clear, concise, and unambiguous.
+Examples:
+Skimming questions: “What is the primary purpose of the passage?”
+Detail-based questions: “Which year is mentioned as a turning point for the subject discussed?”
+Inference questions: “What can be inferred about the author’s perspective on the topic?”
+Response Format
+Return the generated passage in the following JSON structure:
+
+json```
+[
+  {
+    "number": 2,
+    "skill": "Understanding Details",
+    "title": "The Impact of Artificial Intelligence on Modern Education",
+    "passage": "Full text of the passage. The total word count is between 500 and 800 words.",
+    "questions": [
+      {
+        "text": "What is the main benefit of artificial intelligence in education according to the passage?",
+        "type": "MULTIPLE_CHOICE",
+        "score": 2,
+        "answers": [
+          {"text": "It replaces teachers completely", "is_correct": false},
+          {"text": "It personalizes learning for students", "is_correct": true},
+          {"text": "It increases the number of exams", "is_correct": false}
+        ]
+      },
+      {
+        "text": "List two challenges schools face when implementing AI technologies.",
+        "type": "TEXT",
+        "score": 3,
+        "answers": []
+      }
+    ]
+  },
+]
+```
+IMPORTANT: You MUST generate exactly 14 questions for this passage. If you generate more or fewer, the test will be rejected.

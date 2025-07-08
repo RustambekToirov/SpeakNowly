@@ -1,0 +1,79 @@
+# === Python files ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# === Environment ===
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+*.env
+
+# === Editors ===
+.vscode/
+.history/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Logging ===
+*.log
+
+# === Database ===
+*.sqlite3
+*.db
+*.bak
+*.sql
+migrations/
+media/*
+!media/.gitkeep
+media/
+aerich.ini
+aerich.log
+
+# === ORM generated files ===
+*.py,cover
+*.pyc,cover
+
+# === Task processing ===
+celerybeat-schedule
+celerybeat.pid
+
+# === Dependencies ===
+Pipfile.lock
+
+# === Testing ===
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+pytest_cache/
+coverage.xml
+
+# === Jupyter ===
+.ipynb_checkpoints
+
+# === Build artifacts ===
+build/
+dist/
+*.egg-info/
+
+# === IDE files ===
+.idea/
+*.iml
+
+# === Frontend ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Project specific ===
+secrets.json

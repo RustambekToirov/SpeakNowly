@@ -1,0 +1,659 @@
+[
+    {
+        "id": 1,
+        "created_at": "2025-06-16 17:54:55.359669+00",
+        "updated_at": "2025-06-16 17:54:55.359716+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you currently working or studying?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie? Why do you like it?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 2
+    },
+    {
+        "id": 2,
+        "created_at": "2025-06-16 17:54:55.867662+00",
+        "updated_at": "2025-06-16 17:54:55.867703+00",
+        "part": "Part 2",
+        "title": "Individual Long Turn",
+        "content": "[\"Describe a memorable holiday you have had.\",\"You should say: where you went, who you went with, what you did there, and explain why it was memorable.\"]",
+        "speaking_id": 2
+    },
+    {
+        "id": 3,
+        "created_at": "2025-06-16 17:54:56.179433+00",
+        "updated_at": "2025-06-16 17:54:56.179479+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"How important is it for people to take vacations?\",\"Do you think people in your country have enough time for holidays?\",\"How has tourism changed in recent years?\",\"What are the benefits and drawbacks of tourism for a country?\",\"How can tourism be made more sustainable?\"]",
+        "speaking_id": 2
+    },
+    {
+        "id": 4,
+        "created_at": "2025-06-16 17:57:21.905015+00",
+        "updated_at": "2025-06-16 17:57:21.905028+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"How important is it for people to take vacations?\",\"Do you think people in your country have enough time for holidays?\",\"How has tourism changed in recent years?\",\"What are the benefits and drawbacks of tourism for a country?\",\"How can people ensure they have a positive impact on the places they visit?\"]",
+        "speaking_id": 3
+    },
+    {
+        "id": 5,
+        "created_at": "2025-06-16 18:53:31.381554+00",
+        "updated_at": "2025-06-16 18:53:31.381575+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you working or studying at the moment?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie? Why do you like it?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 5
+    },
+    {
+        "id": 6,
+        "created_at": "2025-06-16 18:53:31.654606+00",
+        "updated_at": "2025-06-16 18:53:31.654639+00",
+        "part": "Part 2",
+        "title": "Individual Long Turn",
+        "content": "[\"Describe a memorable holiday you have had. You should say: where you went, who you went with, what you did, and explain why it was memorable.\"]",
+        "speaking_id": 5
+    },
+    {
+        "id": 7,
+        "created_at": "2025-06-16 18:53:31.782541+00",
+        "updated_at": "2025-06-16 18:53:31.782576+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"Why do you think people like to travel?\",\"How has tourism changed in your country over the years?\",\"What are the advantages and disadvantages of traveling alone?\",\"Do you think travel is more about the destination or the journey?\",\"How can travel impact a person's perspective on life?\"]",
+        "speaking_id": 5
+    },
+    {
+        "id": 8,
+        "created_at": "2025-06-16 19:28:24.650793+00",
+        "updated_at": "2025-06-16 19:28:24.650825+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you currently working or studying?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 8
+    },
+    {
+        "id": 9,
+        "created_at": "2025-06-16 19:28:25.264683+00",
+        "updated_at": "2025-06-16 19:28:25.264698+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"What are the benefits of taking holidays for people?\",\"How do you think tourism affects the local culture and environment?\",\"Do you think people will travel more or less in the future? Why?\",\"How has the way people travel changed over the years?\",\"What role does technology play in modern travel?\"]",
+        "speaking_id": 8
+    },
+    {
+        "id": 10,
+        "created_at": "2025-06-16 20:36:18.936312+00",
+        "updated_at": "2025-06-16 20:36:18.936332+00",
+        "part": "Part 2",
+        "title": "Individual Long Turn",
+        "content": "[\"Describe a memorable holiday you have had. You should say: where you went, who you went with, what you did, and explain why it was memorable.\"]",
+        "speaking_id": 9
+    },
+    {
+        "id": 11,
+        "created_at": "2025-06-16 20:36:19.141554+00",
+        "updated_at": "2025-06-16 20:36:19.141588+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"How important is it for people to take vacations?\",\"Do you think people in your country have enough time for holidays?\",\"How has tourism changed in your country over the years?\",\"What are the advantages and disadvantages of tourism for a country?\",\"How can tourism be made more sustainable?\"]",
+        "speaking_id": 9
+    },
+    {
+        "id": 12,
+        "created_at": "2025-06-17 04:46:47.688151+00",
+        "updated_at": "2025-06-17 04:46:47.688163+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you working or studying at the moment?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 10
+    },
+    {
+        "id": 13,
+        "created_at": "2025-06-17 04:46:47.707174+00",
+        "updated_at": "2025-06-17 04:46:47.707185+00",
+        "part": "Part 2",
+        "title": "Individual Long Turn",
+        "content": "[\"Describe a memorable trip you have taken. You should say: where you went, who you went with, and what you did there. Explain why this trip was memorable for you.\"]",
+        "speaking_id": 10
+    },
+    {
+        "id": 14,
+        "created_at": "2025-06-17 04:46:47.714276+00",
+        "updated_at": "2025-06-17 04:46:47.714287+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"Why do people like to travel?\",\"How has travel changed compared to the past?\",\"What are the benefits of traveling to different countries?\",\"Do you think travel is more about the destination or the journey?\",\"How can travel impact a person's perspective on life?\"]",
+        "speaking_id": 10
+    },
+    {
+        "id": 15,
+        "created_at": "2025-06-17 04:54:59.690271+00",
+        "updated_at": "2025-06-17 04:54:59.690282+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"Why do you think people like to travel?\",\"How has tourism changed in your country over the years?\",\"What are the advantages and disadvantages of traveling abroad?\",\"Do you think travel is more about the destination or the journey?\",\"How can travel impact a person's perspective on life?\"]",
+        "speaking_id": 11
+    },
+    {
+        "id": 16,
+        "created_at": "2025-06-17 05:04:00.509231+00",
+        "updated_at": "2025-06-17 05:04:00.509243+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"Why do you think people like to travel?\",\"How has tourism changed in your country over the years?\",\"What are the advantages and disadvantages of traveling abroad?\",\"Do you think travel is more important for young people or older people?\",\"How can travel impact a person's perspective on life?\"]",
+        "speaking_id": 12
+    },
+    {
+        "id": 17,
+        "created_at": "2025-06-17 08:56:33.930817+00",
+        "updated_at": "2025-06-17 08:56:33.930833+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you currently working or studying?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie?\",\"What kind of music do you enjoy?\"]",
+        "speaking_id": 15
+    },
+    {
+        "id": 18,
+        "created_at": "2025-06-17 08:56:34.116966+00",
+        "updated_at": "2025-06-17 08:56:34.116986+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Meal",
+        "content": "[\"Describe a memorable meal you had. You should say: where you had it, who you were with, what you ate, and explain why it was memorable.\"]",
+        "speaking_id": 15
+    },
+    {
+        "id": 19,
+        "created_at": "2025-06-17 08:56:34.20308+00",
+        "updated_at": "2025-06-17 08:56:34.203129+00",
+        "part": "Part 3",
+        "title": "Discussion on Food and Culture",
+        "content": "[\"How important is food in your culture?\",\"Do you think traditional meals are being replaced by fast food?\",\"How can people be encouraged to eat healthier?\",\"What role does food play in social gatherings in your country?\",\"How has globalization affected the way people eat in your country?\"]",
+        "speaking_id": 15
+    },
+    {
+        "id": 20,
+        "created_at": "2025-06-17 11:18:12.244263+00",
+        "updated_at": "2025-06-17 11:18:12.244274+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"Why do you think people like to travel?\",\"How has tourism changed in your country over the years?\",\"What are the advantages and disadvantages of traveling abroad?\",\"Do you think travel is more about the destination or the journey?\",\"How can travel impact cultural understanding?\"]",
+        "speaking_id": 16
+    },
+    {
+        "id": 21,
+        "created_at": "2025-06-17 11:26:38.873722+00",
+        "updated_at": "2025-06-17 11:26:38.873733+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"How important is it for people to take vacations?\",\"Do you think people in your country take enough holidays?\",\"How has tourism changed in recent years?\",\"What are the benefits and drawbacks of tourism for a country?\",\"How can people ensure they have a positive experience when traveling?\"]",
+        "speaking_id": 17
+    },
+    {
+        "id": 22,
+        "created_at": "2025-06-17 11:42:56.051787+00",
+        "updated_at": "2025-06-17 11:42:56.051798+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"What are the benefits of taking holidays for people?\",\"How do you think tourism affects the local culture and environment?\",\"Do you think people will travel more or less in the future? Why?\",\"How has technology changed the way people plan and enjoy their holidays?\",\"What role does tourism play in the economy of a country?\"]",
+        "speaking_id": 18
+    },
+    {
+        "id": 23,
+        "created_at": "2025-06-17 14:56:43.298326+00",
+        "updated_at": "2025-06-17 14:56:43.298342+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you working or studying at the moment?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie? Why do you like it?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 19
+    },
+    {
+        "id": 24,
+        "created_at": "2025-06-17 14:56:43.629839+00",
+        "updated_at": "2025-06-17 14:56:43.629876+00",
+        "part": "Part 2",
+        "title": "Individual Long Turn",
+        "content": "[\"Describe a memorable holiday you have had. You should say: where you went, who you went with, what you did, and explain why it was memorable.\"]",
+        "speaking_id": 19
+    },
+    {
+        "id": 25,
+        "created_at": "2025-06-17 14:56:43.744959+00",
+        "updated_at": "2025-06-17 14:56:43.745+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"What are the benefits of taking holidays for people?\",\"Do you think people in your country take enough holidays?\",\"How has tourism changed in recent years?\",\"What impact does tourism have on the environment?\",\"How can tourists be more responsible when they travel?\"]",
+        "speaking_id": 19
+    },
+    {
+        "id": 26,
+        "created_at": "2025-06-17 15:00:50.494634+00",
+        "updated_at": "2025-06-17 15:00:50.494676+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"Can you tell me your full name, please?\",\"Where do you live?\",\"Are you working or studying at the moment?\",\"What do you like to do in your free time?\",\"Do you have a favorite book or movie?\",\"What kind of music do you enjoy listening to?\"]",
+        "speaking_id": 20
+    },
+    {
+        "id": 27,
+        "created_at": "2025-06-17 15:00:51.107411+00",
+        "updated_at": "2025-06-17 15:00:51.107445+00",
+        "part": "Part 3",
+        "title": "Two-way Discussion",
+        "content": "[\"What are the benefits of taking holidays for people?\",\"Do you think people in your country take enough holidays?\",\"How has the way people spend their holidays changed over the years?\",\"What impact does tourism have on local communities?\",\"Do you think it's important for people to travel to different countries?\"]",
+        "speaking_id": 20
+    },
+    {
+        "id": 28,
+        "created_at": "2025-06-17 15:35:21.642837+00",
+        "updated_at": "2025-06-17 15:35:21.642871+00",
+        "part": "Part 1",
+        "title": "Introduction and Personal Preferences",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"How do you usually spend your weekends?\",\"Do you prefer spending time indoors or outdoors?\"]",
+        "speaking_id": 22
+    },
+    {
+        "id": 29,
+        "created_at": "2025-06-17 15:35:21.841858+00",
+        "updated_at": "2025-06-17 15:35:21.84189+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you took that was particularly memorable.\",\"Where did you go and who did you travel with?\",\"What made this journey special for you?\",\"Would you like to take a similar journey again in the future?\"]",
+        "speaking_id": 22
+    },
+    {
+        "id": 30,
+        "created_at": "2025-06-17 15:35:21.95988+00",
+        "updated_at": "2025-06-17 15:35:21.959912+00",
+        "part": "Part 3",
+        "title": "Travel and Its Impact",
+        "content": "[\"In what ways do you think travel can broaden a person's perspective?\",\"Do you believe that travel is essential for personal growth? Why or why not?\",\"How has the way people travel changed over the past few decades?\",\"What are some potential negative impacts of tourism on local communities?\",\"How can travelers be more responsible when visiting new places?\",\"Do you think virtual reality could replace physical travel in the future?\"]",
+        "speaking_id": 22
+    },
+    {
+        "id": 31,
+        "created_at": "2025-06-17 15:35:54.487361+00",
+        "updated_at": "2025-06-17 15:35:54.487396+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you took that was particularly memorable.\",\"Where did you go and who did you travel with?\",\"What made this journey special or unique?\",\"How did this experience impact you?\"]",
+        "speaking_id": 23
+    },
+    {
+        "id": 32,
+        "created_at": "2025-06-17 15:35:54.585976+00",
+        "updated_at": "2025-06-17 15:35:54.58601+00",
+        "part": "Part 3",
+        "title": "Travel and Its Impact",
+        "content": "[\"In what ways do you think travel can broaden a person's perspective?\",\"Do you believe that travel is essential for personal growth? Why or why not?\",\"How has the way people travel changed over the past few decades?\",\"What are some potential negative effects of tourism on local communities?\",\"How can travelers be more responsible and respectful towards the places they visit?\"]",
+        "speaking_id": 23
+    },
+    {
+        "id": 33,
+        "created_at": "2025-06-17 15:41:06.570853+00",
+        "updated_at": "2025-06-17 15:41:06.570894+00",
+        "part": "Part 1",
+        "title": "Local Markets",
+        "content": "[\"How often do you visit local markets?\",\"What do you usually buy from there?\"]",
+        "speaking_id": 24
+    },
+    {
+        "id": 34,
+        "created_at": "2025-06-17 15:41:07.080991+00",
+        "updated_at": "2025-06-17 15:41:07.081052+00",
+        "part": "Part 2",
+        "title": "A Memorable Journey",
+        "content": "[\"Describe a journey you took that was particularly memorable.\",\"Where did you go and who did you travel with?\",\"What made this journey special for you?\",\"How did you feel during and after the journey?\"]",
+        "speaking_id": 24
+    },
+    {
+        "id": 35,
+        "created_at": "2025-06-17 15:41:07.174974+00",
+        "updated_at": "2025-06-17 15:41:07.175015+00",
+        "part": "Part 3",
+        "title": "Travel and Exploration",
+        "content": "[\"In what ways can travel broaden a person's perspective?\",\"Do you think people travel more now than in the past? Why?\",\"How does technology influence the way we travel today?\",\"What are the environmental impacts of increased travel?\",\"Should governments promote domestic tourism more than international tourism?\"]",
+        "speaking_id": 24
+    },
+    {
+        "id": 36,
+        "created_at": "2025-06-17 15:41:52.293763+00",
+        "updated_at": "2025-06-17 15:41:52.293797+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you took that was particularly memorable.\",\"Where did you go and who did you travel with?\",\"What made this journey special or memorable?\",\"Would you like to take a similar journey again in the future?\"]",
+        "speaking_id": 25
+    },
+    {
+        "id": 37,
+        "created_at": "2025-06-17 15:41:52.385978+00",
+        "updated_at": "2025-06-17 15:41:52.386025+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Exploration",
+        "content": "[\"How has travel changed in the last few decades?\",\"What are the benefits and drawbacks of traveling frequently?\",\"Do you think people should travel more to understand different cultures?\",\"How does technology impact the way we travel today?\",\"In your opinion, is it better to travel alone or with others?\",\"What role does travel play in personal development?\"]",
+        "speaking_id": 25
+    },
+    {
+        "id": 38,
+        "created_at": "2025-06-17 15:50:51.347619+00",
+        "updated_at": "2025-06-17 15:50:51.347661+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"How often do you eat out at restaurants?\",\"Do you like to travel? Why or why not?\",\"What is the most interesting place you have visited?\",\"Where would you like to travel next?\"]",
+        "speaking_id": 26
+    },
+    {
+        "id": 39,
+        "created_at": "2025-06-17 15:50:51.547594+00",
+        "updated_at": "2025-06-17 15:50:51.547628+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Event",
+        "content": "[\"Describe a memorable event you attended.\",\"You should say: what the event was, where it took place, and who was there with you.\",\"Explain why this event was memorable for you.\"]",
+        "speaking_id": 26
+    },
+    {
+        "id": 40,
+        "created_at": "2025-06-17 15:50:51.646278+00",
+        "updated_at": "2025-06-17 15:50:51.646371+00",
+        "part": "Part 3",
+        "title": "Discussion on Events and Celebrations",
+        "content": "[\"What are the most popular types of events in your country?\",\"How do events and celebrations impact the community?\",\"Do you think people spend too much money on celebrations? Why or why not?\",\"How have celebrations changed over the years in your country?\",\"What role do cultural traditions play in modern celebrations?\",\"Should governments support public celebrations? Why or why not?\"]",
+        "speaking_id": 26
+    },
+    {
+        "id": 41,
+        "created_at": "2025-06-17 15:51:16.609591+00",
+        "updated_at": "2025-06-17 15:51:16.609607+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy reading books? Why or why not?\",\"What kind of books do you like to read?\",\"Do you prefer spending time indoors or outdoors?\",\"What activities do you enjoy doing outdoors?\"]",
+        "speaking_id": 27
+    },
+    {
+        "id": 42,
+        "created_at": "2025-06-17 15:51:16.707436+00",
+        "updated_at": "2025-06-17 15:51:16.707462+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Meal",
+        "content": "[\"Describe a memorable meal you have had.\",\"Who did you have it with?\",\"What made it special?\",\"How did you feel during and after the meal?\"]",
+        "speaking_id": 27
+    },
+    {
+        "id": 43,
+        "created_at": "2025-06-17 15:51:16.805095+00",
+        "updated_at": "2025-06-17 15:51:16.805113+00",
+        "part": "Part 3",
+        "title": "Discussion on Food and Culture",
+        "content": "[\"How important is food in your culture?\",\"Do you think traditional meals are losing their significance in modern society?\",\"What role does food play in family gatherings in your country?\",\"How has globalization affected the food choices available in your country?\",\"Do you think people should be encouraged to try foods from different cultures?\",\"What impact does fast food have on traditional eating habits?\"]",
+        "speaking_id": 27
+    },
+    {
+        "id": 44,
+        "created_at": "2025-06-17 17:28:11.575942+00",
+        "updated_at": "2025-06-17 17:28:11.575954+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy reading books? Why or why not?\",\"What kind of music do you like to listen to?\",\"How do you usually spend your weekends?\",\"Do you have a favorite type of cuisine? What is it?\"]",
+        "speaking_id": 28
+    },
+    {
+        "id": 45,
+        "created_at": "2025-06-17 17:28:11.601068+00",
+        "updated_at": "2025-06-17 17:28:11.601079+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you went on that was particularly memorable.\",\"Where did you go and who did you travel with?\",\"What made this journey special or memorable?\",\"Would you like to go on a similar journey again? Why or why not?\"]",
+        "speaking_id": 28
+    },
+    {
+        "id": 46,
+        "created_at": "2025-06-17 17:28:11.607898+00",
+        "updated_at": "2025-06-17 17:28:11.607909+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Journeys",
+        "content": "[\"Why do people enjoy traveling to new places?\",\"How has travel changed in the last few decades?\",\"What are the benefits and drawbacks of traveling alone versus with others?\",\"In what ways can travel impact a person's perspective on life?\",\"Do you think technology has made travel easier or more complicated? Why?\",\"How important is it for people to experience different cultures through travel?\"]",
+        "speaking_id": 28
+    },
+    {
+        "id": 47,
+        "created_at": "2025-06-18 03:50:10.039465+00",
+        "updated_at": "2025-06-18 03:50:10.039478+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you working or studying at the moment?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"Do you prefer eating out or cooking at home?\",\"How do you usually spend your weekends?\",\"Do you have any hobbies or interests?\",\"What is your favorite way to relax?\"]",
+        "speaking_id": 29
+    },
+    {
+        "id": 48,
+        "created_at": "2025-06-18 03:50:10.229288+00",
+        "updated_at": "2025-06-18 03:50:10.229313+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you remember well.\",\"Where did you go and who did you go with?\",\"What made this journey memorable?\",\"Would you like to take a similar journey again?\"]",
+        "speaking_id": 29
+    },
+    {
+        "id": 49,
+        "created_at": "2025-06-18 03:50:10.32135+00",
+        "updated_at": "2025-06-18 03:50:10.32138+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Journeys",
+        "content": "[\"What are the benefits of traveling to new places?\",\"How has travel changed over the past few decades?\",\"Do you think people will travel more or less in the future? Why?\",\"What impact does tourism have on local cultures?\",\"How can travelers be more responsible when visiting new places?\",\"What role does technology play in modern travel?\"]",
+        "speaking_id": 29
+    },
+    {
+        "id": 50,
+        "created_at": "2025-06-18 03:50:35.680036+00",
+        "updated_at": "2025-06-18 03:50:35.680077+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Journey",
+        "content": "[\"Describe a journey you went on that was particularly memorable.\",\"Where did you go and who did you go with?\",\"What made this journey special?\",\"How did you feel during and after the journey?\"]",
+        "speaking_id": 30
+    },
+    {
+        "id": 51,
+        "created_at": "2025-06-18 03:50:35.772853+00",
+        "updated_at": "2025-06-18 03:50:35.77291+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Tourism",
+        "content": "[\"What are the benefits of traveling to new places?\",\"How has tourism changed in recent years?\",\"Do you think travel is essential for personal growth? Why or why not?\",\"What impact does tourism have on the environment?\",\"How can travelers be more responsible when visiting new destinations?\",\"In your opinion, what is the future of travel and tourism?\"]",
+        "speaking_id": 30
+    },
+    {
+        "id": 52,
+        "created_at": "2025-06-18 04:39:03.781097+00",
+        "updated_at": "2025-06-18 04:39:03.78111+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"Do you prefer eating out or cooking at home?\",\"How do you usually spend your weekends?\",\"Do you have any hobbies or activities you like to do in your free time?\"]",
+        "speaking_id": 31
+    },
+    {
+        "id": 53,
+        "created_at": "2025-06-18 04:39:03.799818+00",
+        "updated_at": "2025-06-18 04:39:03.79983+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Holiday",
+        "content": "[\"Describe a holiday that you remember well.\",\"Where did you go and who did you go with?\",\"What activities did you do during this holiday?\",\"Why was this holiday memorable for you?\"]",
+        "speaking_id": 31
+    },
+    {
+        "id": 54,
+        "created_at": "2025-06-18 04:39:03.806636+00",
+        "updated_at": "2025-06-18 04:39:03.806647+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Holidays",
+        "content": "[\"What are the benefits of taking holidays?\",\"Do you think people should travel to different countries for holidays? Why or why not?\",\"How has travel changed over the past few decades?\",\"What impact does tourism have on a country's economy?\",\"Do you think it's important for people to learn about the culture of the country they are visiting?\",\"How can travelers be more responsible when visiting new places?\"]",
+        "speaking_id": 31
+    },
+    {
+        "id": 55,
+        "created_at": "2025-06-18 04:42:05.45808+00",
+        "updated_at": "2025-06-18 04:42:05.458092+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me your address?\",\"Are you currently working or studying?\",\"What do you like to do in your free time?\",\"Do you have a favorite hobby? Why do you enjoy it?\",\"What kind of music do you like?\",\"Do you prefer listening to music alone or with others?\"]",
+        "speaking_id": 32
+    },
+    {
+        "id": 56,
+        "created_at": "2025-06-18 04:42:05.471149+00",
+        "updated_at": "2025-06-18 04:42:05.471159+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Meal",
+        "content": "[\"Describe a memorable meal you had recently.\",\"Who was there with you?\",\"What made it special?\",\"Would you like to have this meal again?\"]",
+        "speaking_id": 32
+    },
+    {
+        "id": 57,
+        "created_at": "2025-06-18 04:42:05.477805+00",
+        "updated_at": "2025-06-18 04:42:05.477815+00",
+        "part": "Part 3",
+        "title": "Discussion on Food and Culture",
+        "content": "[\"How important is food in bringing people together?\",\"Do you think traditional meals are losing their significance in today's fast-paced world?\",\"How does food reflect cultural identity?\",\"In your opinion, what role does food play in international relations?\",\"How has globalization affected the way people eat in your country?\",\"Do you believe that food can be a form of art? Why or why not?\"]",
+        "speaking_id": 32
+    },
+    {
+        "id": 58,
+        "created_at": "2025-06-18 04:42:09.903548+00",
+        "updated_at": "2025-06-18 04:42:09.903559+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"How often do you go out to eat?\",\"Do you like to travel? Why or why not?\",\"What is the most memorable place you have visited?\",\"Where would you like to travel next?\"]",
+        "speaking_id": 33
+    },
+    {
+        "id": 59,
+        "created_at": "2025-06-18 04:42:09.910308+00",
+        "updated_at": "2025-06-18 04:42:09.910319+00",
+        "part": "Part 2",
+        "title": "Describe a Hobby You Enjoy",
+        "content": "[\"Describe a hobby you enjoy doing in your free time.\",\"You should say: what the hobby is, how you became interested in it, and how often you do it.\",\"Explain why you enjoy this hobby.\"]",
+        "speaking_id": 33
+    },
+    {
+        "id": 60,
+        "created_at": "2025-06-18 04:42:09.916848+00",
+        "updated_at": "2025-06-18 04:42:09.916859+00",
+        "part": "Part 3",
+        "title": "Discussion on Hobbies and Leisure",
+        "content": "[\"Do you think hobbies are important for people? Why or why not?\",\"How do hobbies impact a person's mental health?\",\"Are there any hobbies that you think are more beneficial than others?\",\"How have people's hobbies changed over the past few decades?\",\"What role does technology play in modern hobbies?\",\"Do you think schools should encourage students to have hobbies? Why?\"]",
+        "speaking_id": 33
+    },
+    {
+        "id": 61,
+        "created_at": "2025-06-18 04:45:36.287852+00",
+        "updated_at": "2025-06-18 04:45:36.287864+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What types of food do you like to eat?\",\"Do you prefer eating at home or dining out?\",\"What do you like to do in your free time?\",\"Do you have a favorite hobby? Why do you enjoy it?\"]",
+        "speaking_id": 34
+    },
+    {
+        "id": 62,
+        "created_at": "2025-06-18 04:45:36.308456+00",
+        "updated_at": "2025-06-18 04:45:36.308467+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Tourism",
+        "content": "[\"What are the benefits of traveling to new places?\",\"How has tourism changed in recent years?\",\"Do you think travel is important for personal development? Why?\",\"What impact does tourism have on the environment?\",\"How can travelers be more responsible when visiting new places?\",\"In what ways can travel influence cultural understanding?\"]",
+        "speaking_id": 34
+    },
+    {
+        "id": 63,
+        "created_at": "2025-06-18 23:36:12.960536+00",
+        "updated_at": "2025-06-18 23:36:12.960547+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"What do you like to do in your free time?\",\"Do you have a favorite hobby? Why do you enjoy it?\",\"What kind of music do you like to listen to?\",\"Do you have a favorite band or musician?\"]",
+        "speaking_id": 35
+    },
+    {
+        "id": 64,
+        "created_at": "2025-06-18 23:36:12.981014+00",
+        "updated_at": "2025-06-18 23:36:12.981025+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Meal",
+        "content": "[\"Describe a memorable meal you had.\",\"Where did you have it and who were you with?\",\"What made it special or memorable?\",\"How did you feel after the meal?\"]",
+        "speaking_id": 35
+    },
+    {
+        "id": 65,
+        "created_at": "2025-06-18 23:36:12.98775+00",
+        "updated_at": "2025-06-18 23:36:12.987761+00",
+        "part": "Part 3",
+        "title": "Discussion on Food and Culture",
+        "content": "[\"How important is food in cultural identity?\",\"Do you think traditional meals are becoming less popular? Why or why not?\",\"How has globalization affected the way people eat in your country?\",\"What role does food play in social gatherings in your culture?\",\"Do you think people should try to preserve traditional recipes? Why?\",\"How can food influence international relations and understanding?\"]",
+        "speaking_id": 35
+    },
+    {
+        "id": 66,
+        "created_at": "2025-06-19 05:42:22.428479+00",
+        "updated_at": "2025-06-19 05:42:22.428539+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"How do you usually spend your weekends?\",\"Do you prefer spending your free time indoors or outdoors?\"]",
+        "speaking_id": 36
+    },
+    {
+        "id": 67,
+        "created_at": "2025-06-19 05:42:23.042866+00",
+        "updated_at": "2025-06-19 05:42:23.042925+00",
+        "part": "Part 3",
+        "title": "Discussion on Travel and Tourism",
+        "content": "[\"What are the benefits of traveling to different places?\",\"How has tourism changed in recent years?\",\"What impact does tourism have on local cultures and environments?\",\"Do you think people will travel more or less in the future? Why?\",\"How can travel experiences be made more sustainable?\",\"What role does technology play in modern travel?\"]",
+        "speaking_id": 36
+    },
+    {
+        "id": 68,
+        "created_at": "2025-06-19 11:23:54.621969+00",
+        "updated_at": "2025-06-19 11:23:54.62198+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite dish to cook?\",\"How often do you go to the cinema?\",\"What kind of movies do you like to watch?\"]",
+        "speaking_id": 37
+    },
+    {
+        "id": 69,
+        "created_at": "2025-06-19 11:23:54.640955+00",
+        "updated_at": "2025-06-19 11:23:54.640964+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Holiday",
+        "content": "[\"Describe a holiday you enjoyed.\",\"Where did you go and who were you with?\",\"What activities did you do during this holiday?\",\"Why was this holiday memorable for you?\"]",
+        "speaking_id": 37
+    },
+    {
+        "id": 70,
+        "created_at": "2025-06-19 11:23:54.647842+00",
+        "updated_at": "2025-06-19 11:23:54.647851+00",
+        "part": "Part 3",
+        "title": "Discussion on Holidays and Travel",
+        "content": "[\"How important is it for people to take holidays?\",\"Do you think people in your country travel enough?\",\"How has the way people travel changed over the years?\",\"What are the advantages and disadvantages of traveling abroad?\",\"In your opinion, how can tourism impact the culture of a country?\"]",
+        "speaking_id": 37
+    },
+    {
+        "id": 71,
+        "created_at": "2025-06-20 03:31:22.441223+00",
+        "updated_at": "2025-06-20 03:31:22.441235+00",
+        "part": "Part 1",
+        "title": "Introduction and Interview",
+        "content": "[\"What is your full name?\",\"Can you tell me about where you live?\",\"Are you currently working or studying?\",\"Do you enjoy cooking? Why or why not?\",\"What is your favorite type of cuisine?\",\"How often do you go out to eat?\",\"Do you like to travel? Why or why not?\",\"What is the most interesting place you have visited?\",\"Where would you like to travel next?\"]",
+        "speaking_id": 38
+    },
+    {
+        "id": 72,
+        "created_at": "2025-06-20 03:31:22.459076+00",
+        "updated_at": "2025-06-20 03:31:22.459086+00",
+        "part": "Part 2",
+        "title": "Describe a Memorable Event",
+        "content": "[\"Describe a memorable event in your life.\",\"You should say: what the event was, where it took place, and who was there with you.\",\"Explain why this event was memorable for you.\"]",
+        "speaking_id": 38
+    },
+    {
+        "id": 73,
+        "created_at": "2025-06-20 03:31:22.465885+00",
+        "updated_at": "2025-06-20 03:31:22.465896+00",
+        "part": "Part 3",
+        "title": "Discussion on Memorable Events",
+        "content": "[\"Why do you think people remember certain events more than others?\",\"How do memorable events impact a person's life?\",\"Do you think it's important to celebrate significant events? Why or why not?\",\"How can people ensure that an event is memorable?\",\"What role do photographs and videos play in preserving memories?\",\"Do you think technology has changed the way we remember events?\"]",
+        "speaking_id": 38
+    }
+]

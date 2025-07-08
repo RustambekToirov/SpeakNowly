@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "type": "listening",
+        "price": 5,
+        "trial_price": 2
+    },
+    {
+        "id": 2,
+        "type": "writing",
+        "price": 0,
+        "trial_price": 0
+    },
+    {
+        "id": 3,
+        "type": "reading",
+        "price": 7,
+        "trial_price": 3
+    },
+    {
+        "id": 4,
+        "type": "speaking",
+        "price": 7,
+        "trial_price": 3
+    }
+]

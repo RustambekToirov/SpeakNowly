@@ -1,0 +1,1 @@
+# This file initializes the views package for version 1 of the mobile API.
