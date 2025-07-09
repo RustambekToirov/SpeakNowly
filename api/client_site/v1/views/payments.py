@@ -58,7 +58,7 @@ async def checkout(
 
     try:
         inv = await mirpay.create_invoice(
-            summa=payment.amount,
+            summa=payment.amount*12500,
             info_pay=f"User ID: {user.id}\nPayment ID: {payment.uuid}"
         )
     except Exception as e:
