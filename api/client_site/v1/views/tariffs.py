@@ -80,7 +80,7 @@ async def list_plans(
         plan_info = PlanInfo(
             id=category.id,
             name=category_name,
-            sale=float(category.sale),
+            sale=category.sale,
             tariffs=tariffs_list
         )
         result.append(plan_info)
