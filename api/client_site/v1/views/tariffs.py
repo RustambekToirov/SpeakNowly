@@ -8,16 +8,18 @@ from utils.i18n import get_translation
 
 router = APIRouter()
 
+
 def _translate(obj, field: str, lang: str) -> str:
-    """Ma'lumotni tarjima qiladi yoki default qiymatni qaytaradi."""
+    """Get translated field or fallback."""
     return getattr(obj, f"{field}_{lang}", None) or getattr(obj, field, "") or ""
+
 
 @router.get("/", response_model=List[PlanInfo])
 async def list_plans(
     request: Request,
     t: dict = Depends(get_translation),
 ):
-    """Asosiy sahifa uchun barcha tarif rejalari va xususiyatlarini qaytarish."""
+    """Return all plans with tariffs and features for main page."""
     raw_lang = request.headers.get("Accept-Language", "en").split(",")[0]
     lang = raw_lang.split("-")[0].lower()
 
@@ -39,7 +41,8 @@ async def list_plans(
         tariffs_list: List[TariffInfo] = []
 
         for tariff in category.tariffs:
-            if not tariff.is_active:
+            # ❗ Skip if inactive or free
+            if not tariff.is_active or tariff.price == 0:
                 continue
 
             t_name = _translate(tariff, "name", lang)
@@ -79,7 +82,7 @@ async def list_plans(
             )
             tariffs_list.append(tariff_info)
 
-        # ❗️Agar bu planda faol tariflar yo'q bo‘lsa, o'tkazib yuboramiz
+        # ❗ Skip empty plan (no paid tariffs)
         if not tariffs_list:
             continue
 
