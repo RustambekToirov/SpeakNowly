@@ -45,34 +45,24 @@ class MirPayService:
         }
 
     async def create_invoice(self, summa: int, info_pay: str) -> Dict:
-        """
-        To‘lov yaratish: /api/create-pay
-        :param summa: so‘mda (masalan 1000)
-        :param info_pay: izoh (user ID yoki order haqida)
-        :return: {'invoice_id', 'redirect_url', 'status', 'raw'}
-        """
-        if not summa or summa <= 0:
-            raise ValueError("❌ [MirPay] To‘lov summasi noto‘g‘ri")
-
         headers = await self._get_auth_headers()
         encoded_info = quote(info_pay)
         url = f"{self.base_url}/api/create-pay?summa={summa}&info_pay={encoded_info}"
-        logger.info(f"💳 [MirPay] Invoice so‘rovi: {url}")
+        logger.info(f"💳 Creating invoice: {url}")
 
-        try:
-            response = await self._client.post(url, headers=headers)
-            response.raise_for_status()
-        except httpx.HTTPStatusError as e:
-            logger.error(f"❌ [MirPay] Invoice yaratishda xatolik: {e} | Javob: {response.text}")
-            raise
+        response = await self._client.post(url, headers=headers)
+        response.raise_for_status()
 
         data = response.json()
-        logger.info(f"✅ [MirPay] Invoice yaratildi: {data}")
+        logger.info(f"✅ Invoice created: {data}")
+
+        # 👇 YANGILIK: butun javobni raw qilib saqlaymiz
+        payinfo = data.get("payinfo", {})
 
         return {
-            "invoice_id": data.get("id"),
-            "redirect_url": data.get("payinfo", {}).get("redicet_url", ""),  # Ehtiyot bo‘ling: typo MirPay tomonida!
-            "status": data.get("payinfo", {}).get("status", ""),
+            "invoice_id": payinfo.get("id", ""),  # Agar 'id' yo‘q bo‘lsa, bo‘sh string bo‘ladi
+            "redirect_url": payinfo.get("redicet_url", ""),
+            "status": payinfo.get("status", ""),
             "raw": data
         }
 
