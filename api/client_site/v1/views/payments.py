@@ -118,18 +118,18 @@ async def checkout(
 
 @router.post("/callback/", status_code=200)
 async def callback(
-        payid: str = Form(...),
-        summa: str = Form(...),
-        status: str = Form(...),
-        comment: str = Form(...),
-        chek: str = Form(...),
-        fiskal: str = Form(...),
-        sana: str = Form(...),
-        t=Depends(get_translation)
+    payid: str = Form(...),
+    summa: str = Form(...),
+    status: str = Form(...),
+    comment: str = Form(...),
+    chek: str = Form(...),
+    fiskal: str = Form(...),
+    sana: str = Form(...),
+    t=Depends(get_translation)
 ):
     """
     MirPay dan keladigan callbackni qabul qiladi.
-    Agar status = success bo‘lsa, paymentni "paid" qiladi va token beradi.
+    Agar status = success bo‘lsa, paymentni 'paid' qiladi va foydalanuvchiga token beradi.
     """
     if status.lower() != "success":
         raise HTTPException(400, t.get("invalid_callback", "Payment not successful"))
@@ -140,20 +140,20 @@ async def callback(
         raise HTTPException(404, t.get("payment_not_found", "Payment not found"))
 
     if payment.status == "paid":
-        return {"status": "ok"}
+        return {"status": "ok"}  # callback 2 marta tushganda xatolik bermasligi uchun
 
     payment.status = "paid"
     await payment.save()
 
-    tokens = payment.tariff.tokens
+    tokens = payment.tariff.tokens or 0
     last = await TokenTransaction.filter(user_id=payment.user_id).order_by("-created_at").first()
-    bal = last.balance_after_transaction if last else 0
+    balance = last.balance_after_transaction if last else 0
 
     await TokenTransaction.create(
         user=payment.user,
         transaction_type=TransactionType.CUSTOM_ADDITION,
         amount=tokens,
-        balance_after_transaction=bal + tokens,
+        balance_after_transaction=balance + tokens,
         description=t.get("tokens_for_tariff", "Tokens for {tariff_name}").format(
             tariff_name=payment.tariff.name
         )
@@ -162,8 +162,8 @@ async def callback(
     await Message.create(
         user=payment.user,
         type="site",
-        title=f"To‘lov qabul qilindi. Sana: {payment.start_date:%Y-%m-%d}",
-        description="MirPay orqali to‘lov muvaffaqiyatli amalga oshirildi.",
+        title=t.get("payment_accepted_title", "To‘lov qabul qilindi."),
+        description=t.get("payment_accepted_desc", "MirPay orqali to‘lov muvaffaqiyatli amalga oshirildi."),
         content=(
             f"## ✅ Obuna tasdiqlandi\n\n"
             f"**Tarif:** {payment.tariff.name}\n"
@@ -175,3 +175,4 @@ async def callback(
     )
 
     return {"status": "ok"}
+
