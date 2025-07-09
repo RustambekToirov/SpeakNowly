@@ -6,6 +6,7 @@ from decouple import config
 
 logger = logging.getLogger("mirpay")
 
+
 class MirPayService:
     """
     MirPay.uz API bilan ishlovchi xizmat:
@@ -22,13 +23,17 @@ class MirPayService:
     async def get_token(self) -> str:
         """Tokenni serverdan oladi va saqlaydi"""
         url = f"{self.base_url}/api/connect?kassaid={self.kassa_id}&api_key={self.api_key}"
-        logger.info(f"🔐 Requesting token from: {url}")
-        response = await self._client.post(url)
-        response.raise_for_status()
+        logger.info(f"🔐 [MirPay] Token so‘rovi: {url}")
+        try:
+            response = await self._client.post(url)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            logger.error(f"❌ [MirPay] Token olishda xatolik: {e} | Javob: {response.text}")
+            raise
 
         data = response.json()
         self._token = data["token"]
-        logger.info("✅ Token received")
+        logger.info("✅ [MirPay] Token olindi")
         return self._token
 
     async def _get_auth_headers(self) -> Dict[str, str]:
@@ -46,20 +51,27 @@ class MirPayService:
         :param info_pay: izoh (user ID yoki order haqida)
         :return: {'invoice_id', 'redirect_url', 'status', 'raw'}
         """
+        if not summa or summa <= 0:
+            raise ValueError("❌ [MirPay] To‘lov summasi noto‘g‘ri")
+
         headers = await self._get_auth_headers()
         encoded_info = quote(info_pay)
         url = f"{self.base_url}/api/create-pay?summa={summa}&info_pay={encoded_info}"
-        logger.info(f"💳 Creating invoice: {url}")
+        logger.info(f"💳 [MirPay] Invoice so‘rovi: {url}")
 
-        response = await self._client.post(url, headers=headers)
-        response.raise_for_status()
+        try:
+            response = await self._client.post(url, headers=headers)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            logger.error(f"❌ [MirPay] Invoice yaratishda xatolik: {e} | Javob: {response.text}")
+            raise
 
         data = response.json()
-        logger.info(f"✅ Invoice created: {data}")
+        logger.info(f"✅ [MirPay] Invoice yaratildi: {data}")
 
         return {
             "invoice_id": data.get("id"),
-            "redirect_url": data.get("payinfo", {}).get("redicet_url", ""),
+            "redirect_url": data.get("payinfo", {}).get("redicet_url", ""),  # Ehtiyot bo‘ling: typo MirPay tomonida!
             "status": data.get("payinfo", {}).get("status", ""),
             "raw": data
         }
