@@ -127,20 +127,36 @@ async def callback(
     sana: str = Form(...),
     t=Depends(get_translation)
 ):
-    """
-    MirPay dan keladigan callbackni qabul qiladi.
-    Agar status = success bo‘lsa, paymentni 'paid' qiladi va foydalanuvchiga token beradi.
-    """
-    if status.lower() != "success":
-        raise HTTPException(400, t.get("invalid_callback", "Payment not successful"))
-
     try:
         payment = await Payment.get(mirpay_invoice_id=payid).select_related("tariff", "user")
     except DoesNotExist:
         raise HTTPException(404, t.get("payment_not_found", "Payment not found"))
 
+    if status.lower() != "success":
+        # ✅ Agar payment hali 'paid' bo‘lmagan bo‘lsa, uni 'failed' qilib qo‘yamiz
+        if payment.status != "paid":
+            payment.status = "failed"
+            await payment.save()
+
+            await Message.create(
+                user=payment.user,
+                type="site",
+                title=t.get("payment_failed_title", "To‘lov amalga oshmadi."),
+                description=t.get("payment_failed_desc", "To‘lov muvaffaqiyatsiz yakunlandi."),
+                content=(
+                    f"❌ Obuna aktivlashtirilmadi\n\n"
+                    f"**Tarif:** {payment.tariff.name}\n"
+                    f"**Narx:** {payment.amount} STARS\n"
+                    f"**Holat:** Muvaffaqiyatsiz ({status})\n"
+                    f"**Izoh:** {comment}"
+                )
+            )
+
+        return {"status": "failed"}
+
+    # ✅ Agar 'success' bo‘lsa, yuqoridagi to‘liq token berish jarayoni (avvalgi javobdagi kabi)
     if payment.status == "paid":
-        return {"status": "ok"}  # callback 2 marta tushganda xatolik bermasligi uchun
+        return {"status": "ok"}  # allaqachon to‘langan bo‘lsa
 
     payment.status = "paid"
     await payment.save()
@@ -175,4 +191,5 @@ async def callback(
     )
 
     return {"status": "ok"}
+
 
