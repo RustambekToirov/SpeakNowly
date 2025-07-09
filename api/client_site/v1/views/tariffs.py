@@ -73,7 +73,7 @@ async def list_plans(
                 duration=int(tariff.duration),
                 redirect_url=None,
                 is_default=bool(tariff.is_default),
-                features=features_list
+                features=features_list,
             )
             tariffs_list.append(tariff_info)
 
