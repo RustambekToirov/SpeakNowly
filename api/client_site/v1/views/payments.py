@@ -59,7 +59,7 @@ async def checkout(
     try:
         inv = await mirpay.create_invoice(
             summa=payment.amount,
-            info_pay=f"User ID: {user.id} - Payment ID: {payment.uuid}"
+            info_pay=f"User ID: {user.id}\nPayment ID: {payment.uuid}"
         )
     except Exception as e:
         msg = t.get("mirpay_error", "Payment service error: {error}").format(error=str(e))
@@ -79,8 +79,8 @@ async def checkout(
         start_date=payment.start_date,
         end_date=payment.end_date,
         status=payment.status,
-        atmos_invoice_id=inv["invoice_id"],
-        atmos_status=inv["status"],
+        mirpay_invoice_id=inv["invoice_id"],
+        mirpay_status=inv["status"],
         payment_url=inv["redirect_url"]
     )
 
