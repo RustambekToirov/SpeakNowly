@@ -9,7 +9,7 @@ from utils.i18n import get_translation
 router = APIRouter()
 
 def _translate(obj, field: str, lang: str) -> str:
-    """Get translated field or fallback."""
+    """Ma'lumotni tarjima qiladi yoki default qiymatni qaytaradi."""
     return getattr(obj, f"{field}_{lang}", None) or getattr(obj, field, "") or ""
 
 @router.get("/", response_model=List[PlanInfo])
@@ -17,9 +17,10 @@ async def list_plans(
     request: Request,
     t: dict = Depends(get_translation),
 ):
-    """Return all plans with tariffs and features for main page."""
+    """Asosiy sahifa uchun barcha tarif rejalari va xususiyatlarini qaytarish."""
     raw_lang = request.headers.get("Accept-Language", "en").split(",")[0]
     lang = raw_lang.split("-")[0].lower()
+
     if lang not in {"en", "ru", "uz"}:
         raise HTTPException(status_code=400, detail=t.get("invalid_language", "Unsupported language"))
 
@@ -40,6 +41,7 @@ async def list_plans(
         for tariff in category.tariffs:
             if not tariff.is_active:
                 continue
+
             t_name = _translate(tariff, "name", lang)
             t_desc = _translate(tariff, "description", lang)
             features_list: List[FeatureItemInfo] = []
@@ -67,7 +69,7 @@ async def list_plans(
                 id=tariff.id,
                 name=t_name,
                 price=tariff.price,
-                old_price=tariff.old_price if tariff.old_price is not None else None,
+                old_price=tariff.old_price,
                 description=t_desc,
                 tokens=int(tariff.tokens),
                 duration=int(tariff.duration),
@@ -77,10 +79,14 @@ async def list_plans(
             )
             tariffs_list.append(tariff_info)
 
+        # ❗️Agar bu planda faol tariflar yo'q bo‘lsa, o'tkazib yuboramiz
+        if not tariffs_list:
+            continue
+
         plan_info = PlanInfo(
             id=category.id,
             name=category_name,
-            sale=float(category.sale),
+            sale=int(category.sale),
             tariffs=tariffs_list
         )
         result.append(plan_info)

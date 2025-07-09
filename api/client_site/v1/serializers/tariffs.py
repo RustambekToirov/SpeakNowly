@@ -1,24 +1,27 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
+
 class FeatureInfo(BaseModel):
-    """Feature info."""
+    """Yagona feature obyekti."""
     id: int
     name: str
     description: Optional[str]
 
+
 class FeatureItemInfo(BaseModel):
-    """Tariff feature item."""
+    """Tariffga tegishli feature holati."""
     id: int
     tariff: int
     feature: FeatureInfo
     is_included: bool
 
+
 class TariffInfo(BaseModel):
-    """Tariff info."""
+    """Alohida tarif (plan ichidagi variant)."""
     id: int
     name: str
-    old_price: Optional[float]
+    old_price: Optional[float]  # float bo'lishi kerak, lekin optional
     price: int
     description: str
     tokens: int
@@ -27,8 +30,9 @@ class TariffInfo(BaseModel):
     is_default: bool
     redirect_url: Optional[str]
 
+
 class PlanInfo(BaseModel):
-    """Plan (category) info."""
+    """Asosiy plan (kategoriya), ichida bir nechta tariff bor."""
     id: int
     name: str
     sale: int
