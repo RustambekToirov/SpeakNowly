@@ -20,6 +20,9 @@ class Payment(BaseModel):
     atmos_invoice_id = fields.CharField(max_length=128, null=True, description="Atmos invoice ID")
     atmos_status = fields.CharField(max_length=32, null=True, description="Atmos status")
     atmos_response = fields.JSONField(null=True, description="Raw Atmos response")
+    mirpay_invoice_id = fields.CharField(max_length=100, null=True)
+    mirpay_status = fields.CharField(max_length=20, null=True)
+    mirpay_response = fields.JSONField(null=True)
 
     class Meta:
         table = "payments"

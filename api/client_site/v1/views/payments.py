@@ -1,18 +1,16 @@
-from fastapi import APIRouter, HTTPException, status, Depends, Request
+from fastapi import APIRouter, HTTPException, status, Depends, Request, Form
 from uuid import uuid4
 from datetime import datetime, timezone, timedelta
 from tortoise.exceptions import DoesNotExist
-from starlette.responses import JSONResponse
 
 from ..serializers.payments import PaymentCreateSerializer, PaymentSerializer
-from services.payments.atmos_service import atm
+from services.payments.mirpay_service import mirpay
 from models import Payment, Tariff, TokenTransaction, TransactionType, Message
 from utils.auth import get_current_user
 from utils.i18n import get_translation
 
-FRONT_NOTIFY_BASE = "https://speaknowly.com/dashboard/notification"
-
 router = APIRouter()
+
 
 @router.post("/checkout/", response_model=PaymentSerializer, status_code=status.HTTP_201_CREATED)
 async def checkout(
@@ -21,11 +19,11 @@ async def checkout(
     t=Depends(get_translation)
 ):
     """
-    1) Load tariff
-    2) Prevent duplicate active subscription
-    3) Reuse or create a pending Payment
-    4) Call Atmos to create invoice + payment_url
-    5) Save Atmos info and return to client
+    1. Tariffni tekshir
+    2. Foydalanuvchida mavjud active to‘lov borligini tekshir
+    3. Pending bo‘lgan to‘lovni qayta ishlat yoki yarat
+    4. MirPay orqali invoice yarat
+    5. payment_url va invoice_id ni saqlab yubor
     """
     try:
         tariff = await Tariff.get(id=data.tariff_id)
@@ -59,18 +57,18 @@ async def checkout(
         )
 
     try:
-        inv = await atm.create_invoice(
-            request_id=str(payment.uuid),
-            amount_tiyin=payment.amount * 100
+        inv = await mirpay.create_invoice(
+            summa=payment.amount,
+            info_pay=f"User ID: {user.id} - Payment ID: {payment.uuid}"
         )
     except Exception as e:
-        msg = t.get("atm_error", "Payment service error: {error}").format(error=str(e))
+        msg = t.get("mirpay_error", "Payment service error: {error}").format(error=str(e))
         raise HTTPException(502, msg)
 
     await payment.update_from_dict({
-        "atmos_invoice_id": str(inv["transaction_id"]),
-        "atmos_status": inv["result"].get("code"),
-        "atmos_response": inv["store_transaction"]
+        "mirpay_invoice_id": inv["invoice_id"],
+        "mirpay_status": inv["status"],
+        "mirpay_response": inv["raw"]
     }).save()
 
     return PaymentSerializer(
@@ -81,40 +79,32 @@ async def checkout(
         start_date=payment.start_date,
         end_date=payment.end_date,
         status=payment.status,
-        atmos_invoice_id=str(inv["transaction_id"]),
-        atmos_status=inv["result"].get("code"),
-        payment_url=inv["payment_url"]
+        atmos_invoice_id=inv["invoice_id"],
+        atmos_status=inv["status"],
+        payment_url=inv["redirect_url"]
     )
 
 
 @router.post("/callback/", status_code=200)
-async def callback(req: Request, t=Depends(get_translation)):
+async def callback(
+    payid: str = Form(...),
+    summa: str = Form(...),
+    status: str = Form(...),
+    comment: str = Form(...),
+    chek: str = Form(...),
+    fiskal: str = Form(...),
+    sana: str = Form(...),
+    t=Depends(get_translation)
+):
     """
-    Atmos webhook:
-    - ensure result.code == "OK"
-    - mark Payment as paid
-    - credit tokens
-    - create a Message
-    - return front redirect_url
+    MirPay dan keladigan callbackni qabul qiladi.
+    Agar status = success bo‘lsa, paymentni "paid" qiladi va token beradi.
     """
-
-    allowed_ips = {"1.2.3.4", "5.6.7.8"}  # Replace with actual Atmos IPs
-    client_ip = req.client.host
-    if client_ip not in allowed_ips:
-        raise HTTPException(403, t.get("forbidden", "Forbidden"))
+    if status.lower() != "success":
+        raise HTTPException(400, t.get("invalid_callback", "Payment not successful"))
 
     try:
-        payload = await req.json()
-    except Exception:
-        raise HTTPException(400, t.get("invalid_callback", "Invalid callback (no JSON)"))
-
-    txn = payload.get("transaction_id")
-    code = payload.get("result", {}).get("code")
-    if not txn or code != "OK":
-        raise HTTPException(400, t.get("invalid_callback", "Invalid callback"))
-
-    try:
-        payment = await Payment.get(atmos_invoice_id=str(txn)).select_related("tariff", "user")
+        payment = await Payment.get(mirpay_invoice_id=payid).select_related("tariff", "user")
     except DoesNotExist:
         raise HTTPException(404, t.get("payment_not_found", "Payment not found"))
 
@@ -124,36 +114,32 @@ async def callback(req: Request, t=Depends(get_translation)):
     payment.status = "paid"
     await payment.save()
 
-    # award tokens
     tokens = payment.tariff.tokens
     last = await TokenTransaction.filter(user_id=payment.user_id).order_by("-created_at").first()
     bal = last.balance_after_transaction if last else 0
+
     await TokenTransaction.create(
         user=payment.user,
         transaction_type=TransactionType.CUSTOM_ADDITION,
         amount=tokens,
         balance_after_transaction=bal + tokens,
-        description=t.get("tokens_for_tariff", "Tokens for {tariff_name}").format(tariff_name=payment.tariff.name)
+        description=t.get("tokens_for_tariff", "Tokens for {tariff_name}").format(
+            tariff_name=payment.tariff.name
+        )
     )
-
-    # create a notification message
-    start_date = payment.start_date
-    end_date = payment.end_date
-    tariff = payment.tariff
 
     await Message.create(
         user=payment.user,
         type="site",
-        title=f"Payment created successfully. Date {start_date:%Y-%m-%d}",
-        description="Payment created successfully. Congratulations!",
+        title=f"To‘lov qabul qilindi. Sana: {payment.start_date:%Y-%m-%d}",
+        description="MirPay orqali to‘lov muvaffaqiyatli amalga oshirildi.",
         content=(
-            f"## 🎉 Subscription Activated Successfully!\n\n"
-            f"**Tariff Name:** {tariff.name}  \n"
-            f"**Price:** {tariff.price} STARS  \n"
-            f"**Duration:** {tariff.duration} days  \n\n"
-            f"---\n\n"
-            f"**Start Date:** {start_date.strftime('%Y-%m-%d %H:%M')}  \n"
-            f"**End Date:** {end_date.strftime('%Y-%m-%d %H:%M')}"
+            f"## ✅ Obuna tasdiqlandi\n\n"
+            f"**Tarif:** {payment.tariff.name}\n"
+            f"**Narx:** {payment.tariff.price} STARS\n"
+            f"**Muddat:** {payment.tariff.duration} kun\n\n"
+            f"**Boshlanish:** {payment.start_date.strftime('%Y-%m-%d %H:%M')}\n"
+            f"**Tugash:** {payment.end_date.strftime('%Y-%m-%d %H:%M')}"
         )
     )
 
