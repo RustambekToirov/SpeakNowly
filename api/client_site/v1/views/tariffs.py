@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Request, Depends
 from typing import List
 
 from ..serializers.tariffs import PlanInfo, TariffInfo, FeatureItemInfo, FeatureInfo
-from models import TariffCategory
+from models import TariffCategory, Tariff
 from services.cache_service import cache
 from utils.i18n import get_translation
 
@@ -28,18 +28,19 @@ async def list_plans(
     if cached:
         return cached
 
-    categories = await TariffCategory.filter(is_active=True).prefetch_related(
-        "tariffs__tariff_features__feature"
-    )
-
+    categories = await TariffCategory.filter(is_active=True)
     result: List[PlanInfo] = []
+
     for category in categories:
         category_name = _translate(category, "name", lang)
-        tariffs_list: List[TariffInfo] = []
 
-        for tariff in category.tariffs:
-            if not tariff.is_active:
-                continue
+        # Tarifflarni faqat shu category_id bo'yicha olish
+        tariffs = await Tariff.filter(is_active=True, category=category.id).prefetch_related(
+            "tariff_features__feature"
+        )
+
+        tariffs_list: List[TariffInfo] = []
+        for tariff in tariffs:
             t_name = _translate(tariff, "name", lang)
             t_desc = _translate(tariff, "description", lang)
             features_list: List[FeatureItemInfo] = []
