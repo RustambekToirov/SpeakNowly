@@ -2,22 +2,23 @@ from fastapi import APIRouter, HTTPException, Request, Depends
 from typing import List
 
 from ..serializers.tariffs import PlanInfo, TariffInfo, FeatureItemInfo, FeatureInfo
-from models import TariffCategory, Tariff
+from models import TariffCategory
 from services.cache_service import cache
 from utils.i18n import get_translation
 
 router = APIRouter()
 
+
 def _translate(obj, field: str, lang: str) -> str:
     """Get translated field or fallback."""
     return getattr(obj, f"{field}_{lang}", None) or getattr(obj, field, "") or ""
+
 
 @router.get("/", response_model=List[PlanInfo])
 async def list_plans(
     request: Request,
     t: dict = Depends(get_translation),
 ):
-    """Return all plans with tariffs and features for main page."""
     raw_lang = request.headers.get("Accept-Language", "en").split(",")[0]
     lang = raw_lang.split("-")[0].lower()
     if lang not in {"en", "ru", "uz"}:
@@ -34,10 +35,8 @@ async def list_plans(
     for category in categories:
         category_name = _translate(category, "name", lang)
 
-        # Tarifflarni faqat shu category_id bo'yicha olish
-        tariffs = await Tariff.filter(is_active=True, category=category.id).prefetch_related(
-            "tariff_features__feature"
-        )
+        # FaQAT shu category`ga tegishli tariflar
+        tariffs = await category.tariffs.filter(is_active=True).prefetch_related("tariff_features__feature")
 
         tariffs_list: List[TariffInfo] = []
         for tariff in tariffs:
@@ -70,10 +69,10 @@ async def list_plans(
                 price=tariff.price,
                 old_price=tariff.old_price if tariff.old_price is not None else None,
                 description=t_desc,
-                tokens=int(tariff.tokens),
-                duration=int(tariff.duration),
+                tokens=tariff.tokens,
+                duration=tariff.duration,
                 redirect_url=None,
-                is_default=bool(tariff.is_default),
+                is_default=tariff.is_default,
                 features=features_list,
             )
             tariffs_list.append(tariff_info)
@@ -81,7 +80,7 @@ async def list_plans(
         plan_info = PlanInfo(
             id=category.id,
             name=category_name,
-            sale=category.sale,
+            sale=float(category.sale),
             tariffs=tariffs_list
         )
         result.append(plan_info)
