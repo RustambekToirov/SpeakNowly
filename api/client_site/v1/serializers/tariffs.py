@@ -18,8 +18,8 @@ class TariffInfo(BaseModel):
     """Tariff info."""
     id: int
     name: str
-    old_price: Optional[int]  # ⬅️ float emas!
-    price: int                # ⬅️ float emas!
+    old_price: Optional[float]
+    price: int
     description: str
     tokens: int
     duration: int
@@ -27,10 +27,9 @@ class TariffInfo(BaseModel):
     is_default: bool
     redirect_url: Optional[str]
 
-
 class PlanInfo(BaseModel):
     """Plan (category) info."""
     id: int
     name: str
-    sale: float
+    sale: int
     tariffs: List[TariffInfo]
