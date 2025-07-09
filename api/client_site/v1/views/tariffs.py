@@ -66,8 +66,8 @@ async def list_plans(
             tariff_info = TariffInfo(
                 id=tariff.id,
                 name=t_name,
-                price=float(tariff.price),
-                old_price=float(tariff.old_price) if tariff.old_price is not None else None,
+                price=tariff.price,
+                old_price=tariff.old_price if tariff.old_price is not None else None,
                 description=t_desc,
                 tokens=int(tariff.tokens),
                 duration=int(tariff.duration),
