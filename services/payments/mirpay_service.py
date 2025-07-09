@@ -51,7 +51,7 @@ class MirPayService:
 
         return {
             "invoice_id": data.get("id"),
-            "redirect_url": data.get("payinfo", {}).get("redirect_url"),
+            "redirect_url": data.get("payinfo", {}).get("redicet_url"),
             "status": data.get("payinfo", {}).get("status"),
             "raw": data
         }
