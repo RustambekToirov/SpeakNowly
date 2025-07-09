@@ -8,75 +8,82 @@ from utils.i18n import get_translation
 
 router = APIRouter()
 
-
 def _translate(obj, field: str, lang: str) -> str:
     """Get translated field or fallback."""
     return getattr(obj, f"{field}_{lang}", None) or getattr(obj, field, "") or ""
-
 
 @router.get("/", response_model=List[PlanInfo])
 async def list_plans(
     request: Request,
     t: dict = Depends(get_translation),
 ):
-    lang = request.headers.get("Accept-Language", "en").split(",")[0].split("-")[0].lower()
+    """Return all plans with tariffs and features for main page."""
+    raw_lang = request.headers.get("Accept-Language", "en").split(",")[0]
+    lang = raw_lang.split("-")[0].lower()
     if lang not in {"en", "ru", "uz"}:
-        raise HTTPException(status_code=400, detail="Unsupported language")
+        raise HTTPException(status_code=400, detail=t.get("invalid_language", "Unsupported language"))
 
     cache_key = f"plans_{lang}"
     cached = await cache.get(cache_key)
     if cached:
         return cached
 
-    categories = await TariffCategory.filter(is_active=True)
-    result = []
+    categories = await TariffCategory.filter(is_active=True).prefetch_related(
+        "tariffs__tariff_features__feature"
+    )
 
+    result: List[PlanInfo] = []
     for category in categories:
-        category_name = getattr(category, f"name_{lang}", None) or category.name
-        tariffs = await Tariff.filter(category_id=category.id, is_active=True).prefetch_related("tariff_features__feature")
+        category_name = _translate(category, "name", lang)
+        tariffs_list: List[TariffInfo] = []
 
-        tariffs_list = []
-        for tariff in tariffs:
-            t_name = getattr(tariff, f"name_{lang}", None) or tariff.name
-            t_desc = getattr(tariff, f"description_{lang}", None) or tariff.description
+        for tariff in category.tariffs:
+            if not tariff.is_active:
+                continue
+            t_name = _translate(tariff, "name", lang)
+            t_desc = _translate(tariff, "description", lang)
+            features_list: List[FeatureItemInfo] = []
 
-            features_list = []
             for tf in tariff.tariff_features:
                 feat = tf.feature
                 if not feat:
                     continue
-                f_name = getattr(feat, f"name_{lang}", None) or feat.name
-                f_desc = getattr(feat, f"description_{lang}", None) or feat.description
-                features_list.append(FeatureItemInfo(
+                f_name = _translate(feat, "name", lang)
+                f_desc = _translate(feat, "description", lang)
+                feature_info = FeatureInfo(
+                    id=feat.id,
+                    name=f_name,
+                    description=f_desc
+                )
+                feat_item = FeatureItemInfo(
                     id=tf.id,
-                    tariff=tariff.id,
-                    is_included=tf.is_included,
-                    feature=FeatureInfo(
-                        id=feat.id,
-                        name=f_name,
-                        description=f_desc
-                    )
-                ))
+                    tariff=tf.tariff_id,
+                    feature=feature_info,
+                    is_included=tf.is_included
+                )
+                features_list.append(feat_item)
 
-            tariffs_list.append(TariffInfo(
+            tariff_info = TariffInfo(
                 id=tariff.id,
                 name=t_name,
-                old_price=tariff.old_price,
                 price=tariff.price,
+                old_price=tariff.old_price if tariff.old_price is not None else None,
                 description=t_desc,
-                tokens=tariff.tokens,
-                duration=tariff.duration,
-                features=features_list,
-                is_default=tariff.is_default,
+                tokens=int(tariff.tokens),
+                duration=int(tariff.duration),
                 redirect_url=None,
-            ))
+                is_default=bool(tariff.is_default),
+                features=features_list
+            )
+            tariffs_list.append(tariff_info)
 
-        result.append(PlanInfo(
+        plan_info = PlanInfo(
             id=category.id,
             name=category_name,
             sale=float(category.sale),
             tariffs=tariffs_list
-        ))
+        )
+        result.append(plan_info)
 
-    await cache.set(cache_key, result, 3600)
+    await cache.set(cache_key, result, expire=3600)
     return result
